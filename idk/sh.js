@@ -56,11 +56,25 @@ const books = [
   { title: "Into the Stars", author: "Maya Lin", genre: "Sci-Fi", year: 2024 },
 ];
 
-function filterGenre(genre) {
+/* function filterGenre(genre) {
   const display = document.getElementById("card-display");
   display.innerHTML = "";
   const filterBooks = books.filter((book) => book.genre === genre);
-  console.log(filterBooks);
+  filterBooks.forEach;
 }
 
-filterGenre("mystery");
+filterGenre("mystery"); */
+
+function filterByGenre(genre) {
+  const cards = document.querySelectorAll(".book-card");
+  cards.forEach((card) => {
+    const cardCategory = card.getAttribute("data-genre");
+    if (genre === cardCategory) {
+      card.style.display = "";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+
+filterByGenre("Mystery");
